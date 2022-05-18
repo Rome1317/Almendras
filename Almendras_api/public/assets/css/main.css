@@ -1,0 +1,55 @@
+
+:root {
+    --dark:#16191c;
+    --dark-x:#1e2126;
+    --light:#FFFDFD;
+    --blue:rgb(29, 165, 175);
+    --lightblue:rgb(32, 210, 223);
+    --pink: #e59890;
+    --brown: #B97856;
+    --beige: #f4dad4;
+    --red: #8c3321;
+    --light-pink: #FFEAE5;
+    --olive-green: #6E7835;
+    --light-green:#BECF5B;
+  
+  
+}
+
+*{
+    font-family: 'Jura', sans-serif;
+}
+
+body{
+    color: var(--brown);
+    background-color: white !important
+}
+
+.navbar{
+    background-color: white !important;
+}
+
+.navbar-brand{
+    color: var(--dark-x) !important;
+    font-weight: 400;
+    font-family: 'Pattaya', sans-serif;
+}
+
+.nav-item{
+    color: var(--brown) !important;
+}
+
+
+footer{
+    background-color: var(---light);
+}
+
+.footer_apps>a{
+    border-color: transparent !important;
+}
+
+
+.footer-link{
+    color: var(--brown);
+}
+
