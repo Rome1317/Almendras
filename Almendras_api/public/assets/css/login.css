@@ -75,20 +75,30 @@ body {
 }
 
 .img-1 {
-  background-image: url(/Recursos/Images/2.jpg);
-  background-size: cover;
+  background-image: url(../images/36.png);
+  background-size: contain;
   background-position: center;
 }
 
 .img-2 {
-  background-image: url(/Recursos/Images/Ej2.jpg);
-  background-size: cover;
+  background-image: url(../images/19.png);
+  background-size: contain;
   background-position: center;
 }
 
 .img-3 {
-  background-image: url(/Recursos/Images/3.jpg);
-  background-size: cover;
+  background-image: url(../images/37.png);
+  background-size: contain;
+  background-position: center;
+}
+.img-4 {
+  background-image: url(../images/22.png);
+  background-size: contain;
+  background-position: center;
+}
+.img-5 {
+  background-image: url(../images/31.png);
+  background-size: contain;
   background-position: center;
 }
 
@@ -106,8 +116,8 @@ a:hover {
 }
 
 .shadow:hover {
-  color: var(--pink);
-  text-shadow: 2px 2px 1px var(--light);
+  color: var(--light-pink);
+  /*text-shadow: 2px 2px 1px var(--light);*/
 }
 
 
