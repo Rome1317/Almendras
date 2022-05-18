@@ -44,19 +44,31 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active img-1 min-vh-100">
                     <div class="carousel-caption d-none d-md-block">
-                      <h5 class="font-weight-bold">Get to know our lastest arrivals.</h5>
+                      <h5 class="font-weight-bold"></h5>
                       <a href="#" class="shadow text-decoration-none">Visit our home page</a>
                     </div>
                   </div>
                   <div class="carousel-item img-2 min-vh-100">
                     <div class="carousel-caption d-none d-md-block">
-                      <h5 class="font-weight-bold">Discover what's new.</h5>
+                      <h5 class="font-weight-bold"></h5>
                       <a href="#" class="shadow text-decoration-none">Visit our home page</a>
                     </div>
                   </div>
                  <div class="carousel-item img-3 min-vh-100">
                    <div class="carousel-caption d-none d-md-block">
-                     <h5 class="font-weight-bold">Find what you need.</h5>
+                     <h5 class="font-weight-bold"></h5>
+                     <a href="#" class="text-decoration-none shadow">Visit our home page</a>
+                   </div>
+                 </div>
+                 <div class="carousel-item img-4 min-vh-100">
+                   <div class="carousel-caption d-none d-md-block">
+                     <h5 class="font-weight-bold"></h5>
+                     <a href="#" class="text-decoration-none shadow">Visit our home page</a>
+                   </div>
+                 </div>
+                 <div class="carousel-item img-5 min-vh-100">
+                   <div class="carousel-caption d-none d-md-block">
+                     <h5 class="font-weight-bold"></h5>
                      <a href="#" class="text-decoration-none shadow">Visit our home page</a>
                    </div>
                  </div>
