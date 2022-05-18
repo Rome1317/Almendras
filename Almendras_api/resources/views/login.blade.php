@@ -154,6 +154,13 @@
 
                   </div>
 
+                  <!-- User last name -->
+                  <div class="mb-3">
+
+                    <label for="example" class="form-label font-weight-bold">Your Lastname</label>
+                    <input type="text" class="form-control bg-dark-x " placeholder="Enter Your Lastname" id="example" aria-describedby="emailHelp">
+                  </div>
+
                   <!-- Password-->
                   <div class="mb-3">
 
