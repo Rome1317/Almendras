@@ -23,8 +23,7 @@ body {
 }
 
 .bg-dark {
-  /* !important para que se sobreescriba */
-  background-color: var(--light) !important;
+  background-color: var(--light);
 }
 
 /* User & Password */
