@@ -23,7 +23,7 @@ body {
 }
 
 .bg-dark {
-  background-color: var(--light);
+  background-color: var(--light) !important;
 }
 
 /* User & Password */

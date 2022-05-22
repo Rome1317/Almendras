@@ -7,7 +7,7 @@
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #3b5998;"
-        href="#!"
+        href="https://www.facebook.com/almendrasjoyeriamty"
         role="button"
         ><i class="fab fa-facebook-f"></i
       ></a>
@@ -16,7 +16,7 @@
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #55acee;"
-        href="#!"
+        href="https://www.instagram.com/almendrasjoyeria/?hl=es"
         role="button"
         ><i class="fab fa-twitter"></i
       ></a>
@@ -26,7 +26,7 @@
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #e59890;"
-        href="#!"
+        href="https://www.instagram.com/almendrasjoyeria/?hl=es"
         role="button"
         ><i class="fab fa-instagram"></i
       ></a>
