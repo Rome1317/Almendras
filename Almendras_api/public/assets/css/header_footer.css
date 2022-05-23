@@ -1,0 +1,27 @@
+.navbar{
+    background-color: white !important;
+}
+
+.navbar-brand{
+    color: var(--dark-x) !important;
+    font-weight: 400;
+    font-family: 'Pattaya', sans-serif;
+}
+
+.nav-item{
+    color: var(--brown) !important;
+}
+
+
+footer{
+    background-color: var(---light);
+}
+
+.footer_apps>a{
+    border-color: transparent !important;
+}
+
+
+.footer-link{
+    color: var(--brown);
+}
