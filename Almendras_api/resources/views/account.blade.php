@@ -61,19 +61,19 @@
                         
                         <tr> 
                             <td>
-                                  <label for="validatsionCustom01">Nombre</label>
+                                  <label for="validatsionCustom01">Name</label>
                             </td>
                             <td>
-                                     <input type="text" class="form-control" placeholder="Nombre" name="nombre_completo"
+                                     <input type="text" class="form-control" placeholder="Name" name="name"
                                      value ="">
                             </td>
                         </tr>
                         <tr> 
                             <td>
-                                  <label for="validatsionCustom01">Apellido</label>
+                                  <label for="validatsionCustom01">Lastname</label>
                             </td>
                             <td>
-                                     <input type="text" class="form-control" placeholder="Apellido" name="apellido"
+                                     <input type="text" class="form-control" placeholder="Lastname" name="lastname"
                                      value ="">
                             </td>
                         </tr>
@@ -143,8 +143,8 @@
                     
                     </table>
                     
-                    <div class="btn">
-                        <button type="submit" class="btn" id="save">Guardar cambios</button>
+                    <div class="right">
+                        <button type="submit" class="btn" id="save">Save changes</button>
                     </div>  
                                    
                 </form>

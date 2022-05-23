@@ -120,13 +120,15 @@
     font-size: 15px;
 }
 
+.right{
+    text-align: end !important;
+}
 
 .btn {
     background-color: var(--pink); /* Green */
     border: none;
     border-radius: 5px;
     color: white;
-    text-align: right;
     text-decoration: none;
     transition: all .3s ease-in-out;
 }
@@ -197,7 +199,7 @@
 }
 
 .delete-btn{
-    background-color: var(--red) !important;
+    background-color: var(--red) ;
 }
 
 /*Responsive*/
