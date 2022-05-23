@@ -14,7 +14,10 @@
         crossorigin="anonymous"
         />
         <!-- Link to css -->
-        <link rel="stylesheet" href="{{asset('assets/css/main.css')}}"/>
+        <link rel="stylesheet" href="{{asset('assets/css/header_footer.css')}}"/>
+
+        <!-- Link to css -->
+        <link rel="stylesheet" href="{{asset('assets/css/account.css')}}"/>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -30,8 +33,143 @@
 
         <div class="container mt-4">
 
+          <!-- Navigation -->
+          <nav class="menu">
+                  <button onclick="location.href=''; ?>'">Log out</button>
+          </nav>
 
+            <!-- Profile Description -->
+            <section class="about">
+                <div class="description">
+                    <div class="text-container">
+                        <p>Hola, Usuario</p> 
+                    </div>
+                </div>
+            </section>
+                           
+            <!-- Info -->
+            <div class="info" id="info">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <table class="table">
 
+                        <tr>
+                            <td>
+                                <h4>Personal Information</h4>
+                            </td>
+
+                        </tr>
+                        
+                        <tr> 
+                            <td>
+                                  <label for="validatsionCustom01">Nombre</label>
+                            </td>
+                            <td>
+                                     <input type="text" class="form-control" placeholder="Nombre" name="nombre_completo"
+                                     value ="">
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>
+                                  <label for="validatsionCustom01">Apellido</label>
+                            </td>
+                            <td>
+                                     <input type="text" class="form-control" placeholder="Apellido" name="apellido"
+                                     value ="">
+                            </td>
+                        </tr>
+
+                        
+                        <tr>
+                            <td>
+                                <h4>Shipping Address</h4>
+                            </td>
+
+                        </tr>
+                        
+                        <tr> 
+                            <td>
+                                  <label for="validatsionCustom01">Calle</label>
+                            </td>
+                            <td>
+                                     <input type="text" class="form-control" placeholder="Calle" name="calle"
+                                     value ="">
+                            </td>
+                        </tr>
+
+                        <tr> 
+                            <td>
+                                  <label for="validatsionCustom01">CP</label>
+                            </td>
+                            <td>
+                                     <input type="text" class="form-control" placeholder="CP" name="cp"
+                                     value ="">
+                            </td>
+                        </tr>
+
+                        <tr> 
+                            <td>
+                                  <label for="validatsionCustom01">State</label>
+                            </td>
+                            <td>
+                                     <input type="text" class="form-control" placeholder="State" name="state"
+                                     value ="">
+                            </td>
+                        </tr>
+
+                        <tr> 
+                            <td>
+                                  <label for="validatsionCustom01">Phone</label>
+                            </td>
+                            <td>
+                                     <input type="text" class="form-control" placeholder="Phone" name="phone"
+                                     value ="">
+                            </td>
+                        </tr>
+
+                        <tr> 
+                            <td>
+                                <label for="inlineFormCustomSelect" class="form-label ">Country</label>
+                            </td>
+                            <td>
+                                <select class="custom-select mr-sm-2 form-control bg-dark-x "  id="inlineFormCustomSelect">
+                                  <option selected>Choose Country</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                    
+                    </table>
+                    
+                    <div class="btn">
+                        <button type="submit" class="btn" id="save">Guardar cambios</button>
+                    </div>  
+                                   
+                </form>
+            </div>
+                                   
+            <div class="text">
+                <p>Pedidos</p>
+            </div>
+                                   
+            <ul id="autoWidth" class="cs-hidden">
+                                   
+                <li class="item-a">
+                    <div class="box-1">
+                        <p class="number">1</p>
+                        <p class="heading">#1235667</p>
+                        <p class="details">1 collar, 2 rings</p>
+                    </div>
+                </li>
+                
+            </ul>
+    
+                  
+          </div>
+
+        
         </div>
 
         @include('footer')

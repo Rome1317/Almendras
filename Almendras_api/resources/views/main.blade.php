@@ -14,6 +14,7 @@
         crossorigin="anonymous"
         />
         <!-- Link to css -->
+        <link rel="stylesheet" href="{{asset('assets/css/header_footer.css')}}"/>
         <link rel="stylesheet" href="{{asset('assets/css/main.css')}}"/>
 
         <!-- Fonts -->
