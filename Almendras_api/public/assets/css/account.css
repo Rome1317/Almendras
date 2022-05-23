@@ -196,6 +196,9 @@
     margin: 0px 0px 20px 0px;
 }
 
+.delete-btn{
+    background-color: var(--red) !important;
+}
 
 /*Responsive*/
 @media(max-width:1100px){
