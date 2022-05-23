@@ -33,8 +33,8 @@
 
           <!-- Navigation -->
           <nav class="menu">
-                <button onclick="location.href=''; ?>'">Roles</button>
-                <button onclick="location.href=''; ?>'">Articles</button>
+                <a href='/roles_management'>Roles</a>
+                <a href='/articles_management'>Articles</a>
           </nav>
 
           <!-- Info -->
@@ -71,7 +71,11 @@
                     
                     </table>
 
-                    <button type="submit" class="btn" id="save">Add role</button>
+                    <div class='right'>
+
+                        <button type="submit" class="btn" id="save">Add role</button>
+
+                    </div>
          
                 </form>
             </div>
@@ -124,13 +128,14 @@
                     
                     </table>
 
-  
-                    <button type="submit" class="btn delete-btn" id="save">Delete role</button>
+                    <div class='right'>
+
+                        <button type="submit" class="btn delete-btn" id="save">Delete role</button>
 
 
-                    <button type="submit" class="btn" id="save">Save changes</button>
+                        <button type="submit" class="btn" id="save">Save changes</button>
+                    </div>
 
-                        
                                         
                 </form>
             </div>
