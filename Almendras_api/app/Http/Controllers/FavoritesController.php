@@ -13,7 +13,7 @@ class FavoritesController extends Controller
      */
     public function index()
     {
-        //
+        return view('shopping_cart');
     }
 
     /**

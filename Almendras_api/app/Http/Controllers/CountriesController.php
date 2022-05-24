@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class CountriesController extends Controller
@@ -14,6 +15,11 @@ class CountriesController extends Controller
     public function index()
     {
         //
+    }
+
+    public function getAllCountries(){
+        $data = Country::all();
+        return $data;
     }
 
     /**

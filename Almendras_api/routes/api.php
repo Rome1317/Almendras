@@ -26,3 +26,6 @@ Route::post('roles/create','App\Http\Controllers\RolesController@createRole')->n
 // Users
 Route::get('users/all','App\Http\Controllers\UsersController@getAllUsers')->name('getall.users');
 Route::post('users/create','App\Http\Controllers\UsersController@createUser')->name('create.users');
+
+// Countries
+Route::get('countries/all','App\Http\Controllers\CountriesController@getAllCountries')->name('getall.countries');

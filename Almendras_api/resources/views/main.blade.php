@@ -36,8 +36,8 @@
           <section class="home" id="home">
 
           <div class="content">
-              <h3>fresh coffee in the morning</h3>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat labore, sint cupiditate distinctio tempora reiciendis.</p>
+              <h3>Just what you needed</h3>
+              <p>Jewerly & Watches Store.</p>
               <a href="#" class="btn">get yours now</a>
           </div>
 
@@ -61,9 +61,9 @@
               </div>
 
               <div class="content">
-                  <h3>what makes our coffee special?</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus qui ea ullam, enim tempora ipsum fuga alias quae ratione a officiis id temporibus autem? Quod nemo facilis cupiditate. Ex, vel?</p>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit amet enim quod veritatis, nihil voluptas culpa! Neque consectetur obcaecati sapiente?</p>
+                  <h3>what makes our jewerly special?</h3>
+                  <p>Con tu apoyo estas impulsando el comercio nacional y una emprendimiento 100% de mujeres mexicanas.</p>
+                  <p>Esperamos disfrutes de tu producto tanto como nosotras disfrutamos hacerlo llegar a ti</p>
                   <a href="#" class="btn">learn more</a>
               </div>
 
