@@ -21,6 +21,7 @@
 
         <!-- Icons -->
         <script src="https://kit.fontawesome.com/ab5a1a4d66.js" crossorigin="anonymous"></script>
+        
 
     </head>
 
@@ -94,7 +95,7 @@
                 <!-- Class of bootstrap text bold and margin -->
                 <h1 class="text-center mb-3"> ¡Welcome Back!</h1>
 
-                <form class="mb-3">
+                <form class="mb-3" action = "" method="post">
 
                   <!-- User -->
                   <div class="mb-2">
@@ -141,7 +142,7 @@
                <!-- Class of bootstrap text bold and margin -->
                 <h1 class="text-center mb-3"> ¡Hello There!</h1>
 
-                <form class="mb-1">
+                <form class="mb-1" action = "" method="post">
 
                   <!-- Email --> 
                   <div class="mb-1">
@@ -182,9 +183,9 @@
                     <label for="inlineFormCustomSelect" class="form-label font-weight-bold">Country</label>
                     <select class="custom-select mr-sm-2 form-control bg-dark-x "  id="inlineFormCustomSelect">
                       <option selected>Choose Country</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                        @foreach ($countries as $d)
+                          <option class="text-black" value="{{ $d->ISO3 }}">{{ $d->name }}</option>
+                        @endforeach
                     </select>
                   </div>
 

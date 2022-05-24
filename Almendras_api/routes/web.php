@@ -13,26 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
-});
-
+# MAIN
 Route::get('/main', function () {
     return view('main');
 });
 
-Route::get('/account', function () {
-    return view('account');
-});
+# LOGIN
+Route::get('/login', 'App\Http\Controllers\UsersController@index')->name('index');
 
-Route::get('/shopping_cart', function () {
-    return view('shopping_cart');
-});
+# ACCOUNT
+Route::get('/account', 'App\Http\Controllers\OrdersController@index')->name('index');
 
-Route::get('/roles_management', function () {
-    return view('roles_forms');
-});
+# SHOPPING CART
+Route::get('/shopping_cart', 'App\Http\Controllers\FavoritesController@index')->name('index');
 
-Route::get('/articles_management', function () {
-    return view('articles_forms');
-});
+# ROLES MANAGEMENT
+Route::get('/roles_management', 'App\Http\Controllers\RolesController@index')->name('index');
+
+# ATICLE MANAGEMENT
+Route::get('/articles_management', 'App\Http\Controllers\ArticlesController@index')->name('index');

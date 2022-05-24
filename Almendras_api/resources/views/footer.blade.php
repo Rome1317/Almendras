@@ -12,13 +12,13 @@
         ><i class="fab fa-facebook-f"></i
       ></a>
 
-      <!-- Twitter -->
+      <!-- Whatsapp -->
       <a
         class="btn btn-primary btn-floating m-1"
-        style="background-color: #55acee;"
-        href="https://www.instagram.com/almendrasjoyeria/?hl=es"
+        style="background-color: #25D366;"
+        href="https://api.whatsapp.com/send?phone=8681889346"
         role="button"
-        ><i class="fab fa-twitter"></i
+        ><i class="fab fa-whatsapp"></i
       ></a>
 
 

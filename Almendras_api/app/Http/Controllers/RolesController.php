@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
+    public function index()
+    {
+        return view('roles_forms');
+    }
+
     public function getAllRoles(){
         $data = Role::all();
         return json_encode(['status'=> 'Success','data'=> $data,200]);
