@@ -15,54 +15,32 @@ class UsersController extends Controller
         return view('login',compact('countries'));
     }
 
-    public function edit(){
-        $user = User::find(Auth::user()->id);
-        return view('System.User.profile', compact('user'));
-    } 
-
     public function getAllUsers(){
         return User::all(); // Ejemplo
     }
 
     public function createUser(Request $request){
-        $data = new User();
-        $data->fill($request->all());
 
-        $data->save();
-
-        return json_encode(['status'=> 'Success','data'=> $data,200]);
-    }
-
-    public function update(Request $request, $id)
-    {
-
-        $request->validate([
+        $this->validate(request(),[
             'name' => 'required',
-            'email' => ['required', 'email', Rule::unique('users')->ignore($id)],
+            'last_name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'ISO3' => 'required'
         ]);
 
-        if($request->password){
-            $request->validate([
-                'password' => 'sometimes|confirmed|min:8',
-            ]);
+        $user = new User();
+        $user->fill($request->all());
+        $user->role_id = 2;
+        $user->save();
 
-            $data = User::find($id);
-            $data->name = $request->name;
-            $data->email = $request->email;
-            $data->password = Hash::make($request->password);
-            $data->save();
+        auth()->login($user);
 
-        }else{
-            $data = User::find($id);
-            $data->name = $request->name;
-            $data->email = $request->email;
-            $data->save();
-        }
-       
-        
-        flash('Changes saved successfully')->success();
-        return redirect(route('acoount'));
+        #Session::flash('message', 'This is a message!');
+
+        return redirect()->to('/login');
     }
 
+    
 
 }
