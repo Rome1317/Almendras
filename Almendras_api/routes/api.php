@@ -22,10 +22,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Roles
 Route::get('roles/all','App\Http\Controllers\RolesController@getAllRoles')->name('getall.roles');
 Route::post('roles/create','App\Http\Controllers\RolesController@createRole')->name('create.roles');
+Route::get('roles/edit','App\Http\Controllers\RolesController@edit')->name('edit.roles');
 
 // Users
 Route::get('users/all','App\Http\Controllers\UsersController@getAllUsers')->name('getall.users');
 Route::post('users/create','App\Http\Controllers\UsersController@createUser')->name('create.users');
+Route::post('users/login','App\Http\Controllers\UsersController@loginUser')->name('login.users');
 
 // Countries
 Route::get('countries/all','App\Http\Controllers\CountriesController@getAllCountries')->name('getall.countries');

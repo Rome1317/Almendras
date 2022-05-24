@@ -74,6 +74,7 @@ section{
     text-align: center;
 }
 
+
 .about .row{
     display: flex;
     align-items: center;
@@ -96,7 +97,7 @@ section{
 
 .about .row .content h3{
     font-size: 3rem;
-    color:#fff;
+    color: var(--brown);
 }
 
 .about .row .content p{

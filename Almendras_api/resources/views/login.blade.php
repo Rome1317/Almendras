@@ -95,13 +95,25 @@
                 <!-- Class of bootstrap text bold and margin -->
                 <h1 class="text-center mb-3"> ¡Welcome Back!</h1>
 
-                <form class="mb-3" action = "" method="post">
+                @if($errors->any())
+
+                  <div class="bg-red-200 p-3">
+                    <ul>
+                      @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                      @endforeach
+                    </ul>
+                  </div>
+                @endif
+
+                <form class="mb-3" action = "{{route('login.users')}}" method="post">
+
 
                   <!-- User -->
                   <div class="mb-2">
 
-                    <label for="exampleInputEmail1" class="form-label font-weight-bold">Email</label>
-                    <input type="email" class="form-control bg-dark-x " placeholder="Enter Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="email" class="form-label font-weight-bold">Email</label>
+                    <input type="email" class="form-control bg-dark-x " placeholder="Enter Email" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
 
                     <!-- Policy -->
                     <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
@@ -110,8 +122,8 @@
                   <!-- Password-->
                   <div class="mb-3">
 
-                    <label for="exampleInputPassword1" class="form-label font-weight-bold">Password</label>
-                    <input type="password" class="form-control bg-dark-x " placeholder="Enter Password" id="exampleInputPassword1">
+                    <label for="password" class="form-label font-weight-bold">Password</label>
+                    <input type="password" class="form-control bg-dark-x " placeholder="Enter Password" name="password" id="exampleInputPassword1">
     
                     <!-- Link -->
                     <a href="#" id="pwHelp" class="form-text text-decoration-none">¿Forgot your password?</a>
@@ -181,7 +193,7 @@
                   <div class="mb-3">
 
                     <label for="ISO3" class="form-label font-weight-bold">Country</label>
-                    <select class="custom-select mr-sm-2 form-control bg-dark-x " name='ISO3' id="inlineFormCustomSelect">
+                    <select class="custom-select mr-sm-2 form-control bg-dark-x " name='ISO3' id="inlineFormCustomSelect" onchange="{{route('edit.roles')}}#>
                       <option selected>Choose Country</option>
                         @foreach ($countries as $d)
                           <option class="text-black" value="{{ $d->ISO3 }}">{{ $d->name }}</option>
