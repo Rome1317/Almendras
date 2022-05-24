@@ -181,7 +181,7 @@
                   <div class="mb-3">
 
                     <label for="ISO3" class="form-label font-weight-bold">Country</label>
-                    <select class="custom-select mr-sm-2 form-control bg-dark-x " name='ISO3' id="inlineFormCustomSelect">
+                    <select class="custom-select mr-sm-2 form-control bg-dark-x " name='ISO3' id="inlineFormCustomSelect" onchange="{{route('edit.roles')}}#>
                       <option selected>Choose Country</option>
                         @foreach ($countries as $d)
                           <option class="text-black" value="{{ $d->ISO3 }}">{{ $d->name }}</option>

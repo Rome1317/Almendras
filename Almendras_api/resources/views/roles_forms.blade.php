@@ -39,7 +39,7 @@
 
           <!-- Info -->
           <div class="info" id="info">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{route('create.roles')}}" method="POST" enctype="multipart/form-data">
                     <table class="table">
 
                         <tr>
@@ -51,7 +51,7 @@
                         
                         <tr> 
                             <td>
-                                  <label for="validatsionCustom01">Name</label>
+                                  <label for="name">Name</label>
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Name" name="name"
@@ -60,7 +60,7 @@
                         </tr>
                         <tr> 
                             <td>
-                                  <label for="validatsionCustom01">Description</label>
+                                  <label for="description">Description</label>
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Description" name="description"
@@ -97,18 +97,18 @@
                                 <label for="inlineFormCustomSelect" class="form-label ">Roles</label>
                             </td>
                             <td>
-                                <select class="custom-select mr-sm-2 form-control bg-dark-x "  id="inlineFormCustomSelect">
+                                <select class="custom-select mr-sm-2 form-control bg-dark-x "  id="inlineFormCustomSelect" onchange="">
                                   <option selected>Choose Role</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
+                                  @foreach ($roles as $d)
+                                    <option class="text-black" value="{{ $d->id }}">{{ $d->name }}</option>
+                                 @endforeach
                                 </select>
                             </td>
                         </tr>
                         
                         <tr> 
                             <td>
-                                  <label for="validatsionCustom01">Name</label>
+                                  <label for="name">Name</label>
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Name" name="name"
@@ -117,7 +117,7 @@
                         </tr>
                         <tr> 
                             <td>
-                                  <label for="validatsionCustom01">Description</label>
+                                  <label for="description">Description</label>
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Description" name="description"

@@ -31,16 +31,14 @@ class UsersController extends Controller
 
         $user = new User();
         $user->fill($request->all());
-        $user->role_id = 2;
+        $user->role_id = 2; # Role ID as user
         $user->save();
 
         auth()->login($user);
 
-        #Session::flash('message', 'This is a message!');
+        echo "<script type='text/javascript'>alert('New user added successfully');</script>";
 
         return redirect()->to('/login');
     }
-
-    
 
 }

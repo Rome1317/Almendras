@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Roles
 Route::get('roles/all','App\Http\Controllers\RolesController@getAllRoles')->name('getall.roles');
 Route::post('roles/create','App\Http\Controllers\RolesController@createRole')->name('create.roles');
+Route::get('roles/edit','App\Http\Controllers\RolesController@edit')->name('edit.roles');
 
 // Users
 Route::get('users/all','App\Http\Controllers\UsersController@getAllUsers')->name('getall.users');
