@@ -142,13 +142,13 @@
                <!-- Class of bootstrap text bold and margin -->
                 <h1 class="text-center mb-3"> ¡Hello There!</h1>
 
-                <form class="mb-1" action = "" method="post">
+                <form class="mb-1" action ="{{route('create.users')}}" method="post">
 
                   <!-- Email --> 
                   <div class="mb-1">
 
-                    <label for="exampleInputEmail1" class="form-label font-weight-bold">Email</label>
-                    <input type="email" class="form-control bg-dark-x " placeholder="Enter Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="email" class="form-label font-weight-bold">Email</label>
+                    <input type="email" class="form-control bg-dark-x " placeholder="Enter Email" name='email' id="exampleInputEmail1" aria-describedby="emailHelp">
 
                     <!-- Policy -->
                     <div id="emailHelp" class="form-text">We'll never share your information with anyone else.</div>
@@ -157,31 +157,31 @@
                   <!-- User -->
                   <div class="mb-3">
 
-                    <label for="example" class="form-label font-weight-bold">Your Name</label>
-                    <input type="text" class="form-control bg-dark-x " placeholder="Enter Your Name" id="example" aria-describedby="emailHelp">
+                    <label for="name" class="form-label font-weight-bold">Your Name</label>
+                    <input type="text" class="form-control bg-dark-x " placeholder="Enter Your Name" name='name' id="example" aria-describedby="emailHelp">
 
                   </div>
 
                   <!-- User last name -->
                   <div class="mb-3">
 
-                    <label for="example" class="form-label font-weight-bold">Your Lastname</label>
-                    <input type="text" class="form-control bg-dark-x " placeholder="Enter Your Lastname" id="example" aria-describedby="emailHelp">
+                    <label for="last_name" class="form-label font-weight-bold">Your Lastname</label>
+                    <input type="text" class="form-control bg-dark-x " placeholder="Enter Your Lastname" name='last_name' id="example" aria-describedby="emailHelp">
                   </div>
 
                   <!-- Password-->
                   <div class="mb-3">
 
-                    <label for="Password" class="form-label font-weight-bold">Password</label>
-                    <input type="password" class="form-control bg-dark-x " placeholder="Enter Password" id="Password">
+                    <label for="password" class="form-label font-weight-bold">Password</label>
+                    <input type="password" class="form-control bg-dark-x " placeholder="Enter Password" name='password' id="Password">
 
                   </div>
 
                   <!-- Country-->
                   <div class="mb-3">
 
-                    <label for="inlineFormCustomSelect" class="form-label font-weight-bold">Country</label>
-                    <select class="custom-select mr-sm-2 form-control bg-dark-x "  id="inlineFormCustomSelect">
+                    <label for="ISO3" class="form-label font-weight-bold">Country</label>
+                    <select class="custom-select mr-sm-2 form-control bg-dark-x " name='ISO3' id="inlineFormCustomSelect">
                       <option selected>Choose Country</option>
                         @foreach ($countries as $d)
                           <option class="text-black" value="{{ $d->ISO3 }}">{{ $d->name }}</option>

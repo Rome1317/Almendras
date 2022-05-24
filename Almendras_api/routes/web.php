@@ -20,6 +20,7 @@ Route::get('/main', function () {
 
 # LOGIN
 Route::get('/login', 'App\Http\Controllers\UsersController@index')->name('index');
+Route::post('/login', 'App\Http\Controllers\UsersController@createUser')->name('createUser');
 
 # ACCOUNT
 Route::get('/account', 'App\Http\Controllers\OrdersController@index')->name('index');
