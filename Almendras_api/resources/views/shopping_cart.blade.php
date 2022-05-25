@@ -80,7 +80,7 @@
                 </div>
               </div>
             </div>
-          <form action="" method="post">
+          <form action="{{route('create.orders')}}" method="post">
             <div id="payment" class="payment">
               <button type="submit" class="btn-pagar" id="cta">Pay here</button>
             </div>
