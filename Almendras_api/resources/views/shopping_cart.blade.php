@@ -46,11 +46,11 @@
               <h2>Shopping cart</h2>
             </div>
           </header>
-          <form action="" method="post">
           <div id="main" class="main">
             <h2> Articles </h2>
 
             @foreach ($articles as $articles)
+            <form action="{{route('delete.favorites',$articles->code)}}"  method='post'>
               <div class="course">
                 <div class="descript">
                   <img class="image" src="{{asset($articles->image)}}"/>
@@ -62,10 +62,11 @@
               
                 <div class="actions">
                   <h2>{{ $articles->price }} MX$</h2>
-                  <a id="" onclick='' href="#">Eliminar</a>
+                  <button type="submit" class='btn'>Delete</button>
                 </div>
 
               </div>
+            </form>
             @endforeach
 
           </div>
@@ -79,6 +80,7 @@
                 </div>
               </div>
             </div>
+          <form action="" method="post">
             <div id="payment" class="payment">
               <button type="submit" class="btn-pagar" id="cta">Pay here</button>
             </div>

@@ -36,6 +36,7 @@ Route::post('articles/create','App\Http\Controllers\ArticlesController@createArt
 
 // Favorite
 Route::post('favorites/create/{article}','App\Http\Controllers\FavoritesController@createFavorite')->name('create.favorites');
+Route::post('favorites/delete/{favorite}','App\Http\Controllers\FavoritesController@deleteFavorite')->name('delete.favorites');
 
 // Countries
 Route::get('countries/all','App\Http\Controllers\CountriesController@getAllCountries')->name('getall.countries');

@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Favorite;
 use App\Models\Article;
 
+
+
 class FavoritesController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +18,14 @@ class FavoritesController extends Controller
      */
     public function index()
     {
+
+        $servername = "localhost";
+        $username = "root";
+        $password = "root";
+        $dbname = "almendras_api_system";
+
         # Get articles saved by user
-        $con = mysqli_connect("localhost","root","root","almendras_api_system");
+        $con = mysqli_connect($servername,$username,$password,$dbname);
         if (!$con)
         {
             die('Could not connect: ' . mysqli_error());
@@ -24,18 +33,20 @@ class FavoritesController extends Controller
         
         $email = "rome_gs@hotmail.com";
 
-        $query = mysqli_query($con, "SELECT * FROM articles WHERE code IN ( SELECT article FROM favorites WHERE saved_by = '$email')");
+        $queryArticles = mysqli_query($con, "SELECT * FROM articles WHERE code IN ( SELECT article FROM favorites WHERE saved_by = '$email')");
 
-
-        if($query)
-            $articles = mysqli_fetch_object($query);
-            $articles = array($articles);
+        if($queryArticles)
+            $articles =array();
+            while ($fila = mysqli_fetch_object($queryArticles)){
+                $articles[] = $fila; 
+            }
             #$articles = json_encode($articles);
 
             $total = 0;
             foreach($articles as $a){
                 $total = $total + $a->price;
             }
+        
 
             return view('shopping_cart',compact('articles','total'));
 
@@ -110,8 +121,31 @@ class FavoritesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function deleteFavorite($id)
     {
-        //
+        $servername = "localhost";
+        $username = "root";
+        $password = "root";
+        $dbname = "almendras_api_system";
+
+        # Get articles saved by user
+        $con = mysqli_connect($servername,$username,$password,$dbname);
+        // Check connection
+        if ($con->connect_error) {
+          die("Connection failed: " . $con->connect_error);
+        }
+
+        $email = "rome_gs@hotmail.com";
+
+        // sql to delete a record
+        $sql = "DELETE FROM Favorites WHERE article=$id AND saved_by='$email' LIMIT 1";
+
+        if ($con->query($sql) === TRUE) {
+            echo "<script type='text/javascript'>alert('Record deleted successfully');</script>";
+        } else {
+            echo "<script type='text/javascript'>alert('Error deleting record');</script>";
+        }
+
+        $con->close();
     }
 }

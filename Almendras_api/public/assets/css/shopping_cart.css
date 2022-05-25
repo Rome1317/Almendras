@@ -41,6 +41,11 @@
     margin-bottom: 10px;
 }
 
+.btn{
+    background-color: var(--red);
+    color: white;
+}
+
 .course{
     width: 100%;
     border: 1px solid var(--pink);

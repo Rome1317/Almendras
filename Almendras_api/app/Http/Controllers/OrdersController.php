@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 
+
 class OrdersController extends Controller
 {
     /**
@@ -22,7 +23,7 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createOrder(Request $request)
+    public function createOrder($articles)
     {
         $this->validate(request(),[
             'name'  => 'required',
@@ -93,6 +94,6 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }
