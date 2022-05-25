@@ -62,12 +62,16 @@ class FavoritesController extends Controller
      */
     public function createFavorite($article)
     {
+        session_start();
+
         $favorite = new Favorite();
         $favorite->article = $article;
-        $favorite->saved_by = "rome_gs@hotmail.com"; # User email
+        $favorite->saved_by = $_SESSION['email']; # User email
         $favorite->save();
 
         echo "<script type='text/javascript'>alert('New article added to cart successfully');</script>";
+
+        return redirect()->to('/shopping_cart');
     }
 
     /**
@@ -123,6 +127,8 @@ class FavoritesController extends Controller
      */
     public function deleteFavorite($id)
     {
+        session_start();
+        
         $servername = "localhost";
         $username = "root";
         $password = "root";
@@ -135,7 +141,7 @@ class FavoritesController extends Controller
           die("Connection failed: " . $con->connect_error);
         }
 
-        $email = "rome_gs@hotmail.com";
+        $email = $_SESSION['email'];
 
         // sql to delete a record
         $sql = "DELETE FROM Favorites WHERE article=$id AND saved_by='$email' LIMIT 1";
@@ -147,5 +153,7 @@ class FavoritesController extends Controller
         }
 
         $con->close();
+
+        return redirect()->to('/shopping_cart');
     }
 }

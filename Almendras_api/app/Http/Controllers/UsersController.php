@@ -8,6 +8,7 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UsersController extends Controller
 {
@@ -57,10 +58,21 @@ class UsersController extends Controller
         $user = User::where('email',$request->email)->first();
 
         if(Hash::check(request('password'),$user->getAuthPassword())){
-            $token = $user->createToken(time())->plainTextToken;
+            session_start();
+            #$token = $user->createToken(time())->plainTextToken;
             $user = Auth::user();
             $articles = Article::all();
-            return view('main',compact('user','articles'));
+
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+
+            $_SESSION['email'] = $request->email; 
+            // Get session values.
+	        #$value = $_SESSION['email'];
+
+            return redirect()->to('/main');
+
         }
 
         echo "<script type='text/javascript'>alert('Invalid Credentials');</script>";
@@ -81,7 +93,27 @@ class UsersController extends Controller
 
     public function logoutUser(){
 
-        auth()->user()->currentAccessToken()->delete();
+        #auth()->user()->currentAccessToken()->delete();
+
+        session_start();
+
+        // Destruir todas las variables de sesión.
+        $_SESSION = array();
+
+        // Si se desea destruir la sesión completamente, borre también la cookie de sesión.
+        // Nota: ¡Esto destruirá la sesión, y no la información de la sesión!
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+
+        // Finalmente, destruir la sesión.
+        session_destroy();
+
+        return redirect()->to('/login');
 
         /*
         # Cookies logout
