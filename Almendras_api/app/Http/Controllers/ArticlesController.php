@@ -31,6 +31,7 @@ class ArticlesController extends Controller
      */
     public function createArticle(Request $request)
     {
+        session_start();
     
         $this->validate(request(),[
             'name'  => 'required',
@@ -46,7 +47,7 @@ class ArticlesController extends Controller
         $article = new Article();
         $article->fill($request->all());
         $article->image = "assets/images/$img";
-        $article->created_by = "rome_gs@hotmail.com"; # User email
+        $article->created_by = $_SESSION['email']; # User email
         $article->save();
 
         echo "<script type='text/javascript'>alert('New article added successfully');</script>";

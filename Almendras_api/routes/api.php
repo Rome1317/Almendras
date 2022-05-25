@@ -29,7 +29,7 @@ Route::get('roles/edit','App\Http\Controllers\RolesController@edit')->name('edit
 Route::get('users/all','App\Http\Controllers\UsersController@getAllUsers')->name('getall.users');
 Route::post('users/create','App\Http\Controllers\UsersController@createUser')->name('create.users');
 Route::post('users/login','App\Http\Controllers\UsersController@loginUser')->name('login.users');
-Route::get('users/logout','App\Http\Controllers\UsersController@logoutUser')->name('logout.users')->middleware('auth:sanctum');
+Route::post('users/logout','App\Http\Controllers\UsersController@logoutUser')->name('logout.users');
 
 // Article
 Route::post('articles/create','App\Http\Controllers\ArticlesController@createArticle')->name('create.articles');

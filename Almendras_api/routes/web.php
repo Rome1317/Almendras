@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+# MAIN
+Route::get('/main', 'App\Http\Controllers\MainController@index')->name('index');
 
 # LOGIN
 Route::get('/login', 'App\Http\Controllers\UsersController@index')->name('index');

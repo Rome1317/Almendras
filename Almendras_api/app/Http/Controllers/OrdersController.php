@@ -15,6 +15,7 @@ class OrdersController extends Controller
      */
     public function index()
     {   
+        session_start();
         
         $servername = "localhost";
         $username = "root";
@@ -28,7 +29,7 @@ class OrdersController extends Controller
             die('Could not connect: ' . mysqli_error());
         }
         
-        $email = "rome_gs@hotmail.com";
+        $email = $_SESSION['email'];
         
         $queryOrders = mysqli_query($con, "SELECT * FROM orders WHERE created_by='$email'");
 

@@ -35,7 +35,9 @@
 
           <!-- Navigation -->
           <nav class="menu">
-                  <button onclick="location.href=''; ?>'">Log out</button>
+              <form action="{{route('logout.users')}}" method="post">
+                  <button type="submit">Log out</button>
+                </form>
           </nav>
 
             <!-- Profile Description -->
