@@ -20,7 +20,6 @@ class ArticlesController extends Controller
         $email = $_SESSION['email'];
         $user = User::where('email',$email)->first();
 
-        echo $user->role_id;
 
         if($user->role_id != 1){
             echo "<script type='text/javascript'>alert('You don't have access');</script>";
@@ -95,7 +94,7 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editArticle($id)
     {
         //
     }

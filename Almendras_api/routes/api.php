@@ -23,7 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Roles
 Route::get('roles/all','App\Http\Controllers\RolesController@getAllRoles')->name('getall.roles');
 Route::post('roles/create','App\Http\Controllers\RolesController@createRole')->name('create.roles');
-Route::get('roles/edit','App\Http\Controllers\RolesController@edit')->name('edit.roles');
+Route::get('roles/edit/{id}','App\Http\Controllers\RolesController@editRole')->name('edit.roles');
+Route::post('roles/update/{id}','App\Http\Controllers\RolesController@updateRole')->name('update.roles');
 
 // Users
 Route::get('users/all','App\Http\Controllers\UsersController@getAllUsers')->name('getall.users');
@@ -34,6 +35,7 @@ Route::post('users/update/{email}', 'App\Http\Controllers\UsersController@update
 
 // Article
 Route::post('articles/create','App\Http\Controllers\ArticlesController@createArticle')->name('create.articles');
+Route::get('/articl/edit/{article}', 'App\Http\Controllers\ArticlesController@editArticle')->name('edit.articles');
 
 // Favorite
 Route::post('favorites/create/{article}','App\Http\Controllers\FavoritesController@createFavorite')->name('create.favorites');
@@ -44,3 +46,4 @@ Route::post('order/create','App\Http\Controllers\OrdersController@createOrder')-
 
 // Countries
 Route::get('countries/all','App\Http\Controllers\CountriesController@getAllCountries')->name('getall.countries');
+

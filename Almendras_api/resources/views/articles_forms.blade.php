@@ -135,64 +135,11 @@
                             </td>
                         </tr>
                         
-                        <tr> 
-                            <td>
-                                  <label for="validatsionCustom01">Name</label>
-                            </td>
-                            <td>
-                                     <input type="text" class="form-control" placeholder="Name" name="name"
-                                     value ="">
-                            </td>
-                        </tr>
-                        <tr> 
-                            <td>
-                                  <label for="validatsionCustom01">Description</label>
-                            </td>
-                            <td>
-                                     <input type="text" class="form-control" placeholder="Description" name="description"
-                                     value ="">
-                            </td>
-                        </tr>
-
-                        <tr> 
-                            <td>
-                                  <label for="validatsionCustom01">Price</label>
-                            </td>
-                            <td>
-                                     <input type="text" class="form-control" placeholder="Price" name="price"
-                                     value ="">
-                            </td>
-                        </tr>
-
-                        <tr> 
-                            <td>
-                                  <label for="validatsionCustom01">Stock</label>
-                            </td>
-                            <td>
-                                     <input type="text" class="form-control" placeholder="Stock" name="stock"
-                                     value ="">
-                            </td>
-                        </tr>
-
-
-                        <tr> 
-                            <td>
-                                <label for="exampleFormControlFile1">Article image</label>
-                            </td>
-                            <td>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-
-                            </td>
-                        </tr>
-
-                    
                     </table>
 
                     <div class='right'>
-                        <button type="submit" class="btn delete-btn" id="save">Delete article</button>
 
-
-                        <button type="submit" class="btn" id="save">Save changes</button>
+                        <button type="submit" class="btn" id="save">Edit article</button>
                     </div>
 
                         
