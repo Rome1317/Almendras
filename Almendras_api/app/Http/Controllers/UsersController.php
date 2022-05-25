@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\Role;
 use App\Models\User;
 use App\Models\Article;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class UsersController extends Controller
 
         $articles = Article::all();
         $countries = Country::all();
+        $roles = Role::all();
 
         try {
             $value = $_SESSION['email'];
@@ -27,11 +29,11 @@ class UsersController extends Controller
                 return view('main',compact('articles')); 
             }
             else{
-                return view('login',compact('countries'));
+                return view('login',compact('countries','roles'));
             }
         } catch (\Throwable $th) {
             //throw $th;
-            return view('login',compact('countries'));
+            return view('login',compact('countries','roles'));
         }
 
     }
@@ -43,6 +45,7 @@ class UsersController extends Controller
     public function createUser(Request $request){
 
         $this->validate(request(),[
+            'role_id' => 'required',
             'name' => 'required',
             'last_name' => 'required',
             'email' => ['required','email'],
@@ -52,7 +55,6 @@ class UsersController extends Controller
 
         $user = new User();
         $user->fill($request->all());
-        $user->role_id = 2; # Role ID as user
         $user->password = Hash::make($request->password);  #Hash password
         $user->save();
 
@@ -73,6 +75,10 @@ class UsersController extends Controller
 
 
         $user = User::where('email',$request->email)->first();
+
+        if($user == ""){
+            return redirect()->back();
+        }
 
         if(Hash::check(request('password'),$user->getAuthPassword())){
             session_start();
