@@ -50,7 +50,7 @@ class RolesController extends Controller
 
     }
 
-    public function update(Request $request, $id)
+    public function updateRole(Request $request, $id)
     {
 
         $request->validate([
@@ -62,8 +62,7 @@ class RolesController extends Controller
         $role->name = $request->name;
         $role->description = $request->description;
         $role->save();
-       
-        flash('Role saved successfully')->success();
-        return redirect(route('/roles_management'));
+
+        return redirect()->to('/roles_management');
     }
 }
