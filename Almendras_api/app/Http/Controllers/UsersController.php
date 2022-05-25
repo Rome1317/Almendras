@@ -15,8 +15,25 @@ class UsersController extends Controller
 
     public function index()
     {
+
+        session_start();
+
+        $articles = Article::all();
         $countries = Country::all();
-        return view('login',compact('countries'));
+
+        try {
+            $value = $_SESSION['email'];
+            if ($value !=""){
+                return view('main',compact('articles')); 
+            }
+            else{
+                return view('login',compact('countries'));
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+            return view('login',compact('countries'));
+        }
+
     }
 
     public function getAllUsers(){
