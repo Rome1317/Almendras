@@ -136,7 +136,7 @@
                   <div class=" form-check">
 
                     <input type="checkbox" class="form-check-input btn-outline-primary" id="exampleCheck1">
-                    <label class="form-check-label font-weight-bold " for="exampleCheck1">Remember me</label>
+                    <label class="form-check-label font-weight-bold " name="remember" for="remember">Remember me</label>
                   </div>
 
                 </form>
@@ -193,7 +193,7 @@
                   <div class="mb-3">
 
                     <label for="ISO3" class="form-label font-weight-bold">Country</label>
-                    <select class="custom-select mr-sm-2 form-control bg-dark-x " name='ISO3' id="inlineFormCustomSelect" onchange="{{route('edit.roles')}}#>
+                    <select class="custom-select mr-sm-2 form-control bg-dark-x " name='ISO3' id="inlineFormCustomSelect">
                       <option selected>Choose Country</option>
                         @foreach ($countries as $d)
                           <option class="text-black" value="{{ $d->ISO3 }}">{{ $d->name }}</option>

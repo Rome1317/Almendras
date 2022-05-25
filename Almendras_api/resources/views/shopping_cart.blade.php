@@ -46,34 +46,33 @@
               <h2>Shopping cart</h2>
             </div>
           </header>
-          <form action="" method="post">
           <div id="main" class="main">
             <h2> Articles </h2>
 
+            @foreach ($articles as $articles)
+            <form action="{{route('delete.favorites',$articles->code)}}"  method='post'>
               <div class="course">
                 <div class="descript">
-                  <img class="image" src="{{asset('assets/images/3.png')}}"/>
+                  <img class="image" src="{{asset($articles->image)}}"/>
                   <div class="text">
-                    <h2>Elephant</h2>
-                    <h3>Silver necklace </h3>
+                    <h2>{{ $articles->name }}</h2>
+                    <h3>{{ $articles->description }}</h3>
                   </div>
                 </div>
               
                 <div class="actions">
-                  <h2>150 MX$</h2>
-                  <a id="" onclick='' href="#">Eliminar</a>
+                  <h2>{{ $articles->price }} MX$</h2>
+                  <button type="submit" class='btn'>Delete</button>
                 </div>
 
               </div>
+            </form>
+            @endforeach
 
-              <div class="payment">
-                  <h2>Total:</h2>
-                  <h3>150 MXN</h3>
-                </div>
           </div>
           <div id="payment" class="payment">
-              <!-- <h2>Total:</h2>
-              <h3>  MXN</h3> -->
+              <h2>Total:</h2>
+              <h3>{{$total}} MXN</h3> 
               <!-- <button class="btn" type="button"><i class="fab fa-paypal"></i></button> -->
               <div id="smart-button-container">
                 <div style="text-align: center;">
@@ -81,6 +80,7 @@
                 </div>
               </div>
             </div>
+          <form action="" method="post">
             <div id="payment" class="payment">
               <button type="submit" class="btn-pagar" id="cta">Pay here</button>
             </div>

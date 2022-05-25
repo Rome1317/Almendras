@@ -62,8 +62,8 @@
 
               <div class="content">
                   <h3>what makes our jewerly special?</h3>
-                  <p>Con tu apoyo estas impulsando el comercio nacional y una emprendimiento 100% de mujeres mexicanas.</p>
-                  <p>Esperamos disfrutes de tu producto tanto como nosotras disfrutamos hacerlo llegar a ti</p>
+                  <p>With your support you are promoting national trade and a 100% Mexican women's entrepreneurship.</p>
+                  <p>We hope you enjoy your product as much as we enjoy bringing it to you.</p>
                   <a href="#" class="btn">learn more</a>
               </div>
 
@@ -83,55 +83,18 @@
 
             <div class="box-container">
 
-                <div class="box">
-                    <img src="{{asset('assets/images/3.png')}}" alt="">
-                    <h3>tasty and healty</h3>
-                    <div class="price">$15.99</div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
+            @foreach ($articles as $articles)
+                <form action="{{route('create.favorites', $articles->code)}}"  method='post'>
+                    <div class="box">
+                        <img src="{{asset($articles->image)}}" alt="">
+                        <h3>{{ $articles->name }}</h3>
+                        <h5>{{ $articles->description }}</h5>
+                        <div class="price">MXN {{ $articles->price }}</div>
+                        <button type="submit" class='btn'>add to cart</button>
+                    </div>
+                </form>
 
-                <div class="box">
-                    <img src="{{asset('assets/images/3.png')}}" alt="">
-                    <h3>tasty and healty</h3>
-                    <div class="price">$15.99 </div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-
-                <div class="box">
-                    <img src="{{asset('assets/images/3.png')}}" alt="">
-                    <h3>tasty and healty</h3>
-                    <div class="price">$15.99</div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-
-                <div class="box">
-                    <img src="{{asset('assets/images/3.png')}}" alt="">
-                    <h3>tasty and healty</h3>
-                    <div class="price">$15.99</div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-
-                <div class="box">
-                    <img src="{{asset('assets/images/3.png')}}" alt="">
-                    <h3>tasty and healty</h3>
-                    <div class="price">$15.99</div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-
-                <div class="box">
-                    <img src="{{asset('assets/images/3.png')}}" alt="">
-                    <h3>tasty and healty</h3>
-                    <div class="price">$15.99 </div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-
-                <div class="box">
-                    <img src="{{asset('assets/images/3.png')}}" alt="">
-                    <h3>tasty and healty</h3>
-                    <div class="price">$15.99 </div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-
+            @endforeach
 
             </div>
 

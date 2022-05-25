@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use App\Models\User;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -53,13 +54,41 @@ class UsersController extends Controller
         ]);;
 
 
-        if(Auth::attempt($credentials)){
+        $user = User::where('email',$request->email)->first();
+
+        if(Hash::check(request('password'),$user->getAuthPassword())){
+            $token = $user->createToken(time())->plainTextToken;
+            $user = Auth::user();
+            $articles = Article::all();
+            return view('main',compact('user','articles'));
+        }
+
+        echo "<script type='text/javascript'>alert('Invalid Credentials');</script>";
+        return redirect()->back();
+
+        /* 
+        #Cookies
+        if(Auth::attempt($credentials,true)){
             $user = Auth::user();
             return view('main',compact('user'));
         }
 
         echo "<script type='text/javascript'>alert('Invalid Credentials');</script>";
         return redirect()->back();
+        */
+    
+    }
+
+    public function logoutUser(){
+
+        auth()->user()->currentAccessToken()->delete();
+
+        /*
+        # Cookies logout
+        auth()->logout();
+
+        return redirect()->to('/login');
+        */
     
     }
 

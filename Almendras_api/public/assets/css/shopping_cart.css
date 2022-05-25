@@ -41,6 +41,11 @@
     margin-bottom: 10px;
 }
 
+.btn{
+    background-color: var(--red);
+    color: white;
+}
+
 .course{
     width: 100%;
     border: 1px solid var(--pink);
@@ -107,10 +112,12 @@
 
 .payment h2{
     font-size: 20px;
+    text-align: center;
 }
 
 .payment h3{
     font-size: 25px;
+    text-align: center;
     margin-bottom: 20px;
 }
 

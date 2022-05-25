@@ -39,7 +39,7 @@
 
           <!-- Info -->
           <div class="info" id="info">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{route('create.articles')}}" method="POST" enctype="multipart/form-data">
                     <table class="table">
 
                         <tr>
@@ -51,7 +51,7 @@
                         
                         <tr> 
                             <td>
-                                  <label for="validatsionCustom01">Name</label>
+                                  <label for="name">Name</label>
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Name" name="name"
@@ -60,7 +60,7 @@
                         </tr>
                         <tr> 
                             <td>
-                                  <label for="validatsionCustom01">Description</label>
+                                  <label for="description">Description</label>
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Description" name="description"
@@ -70,7 +70,7 @@
 
                         <tr> 
                             <td>
-                                  <label for="validatsionCustom01">Price</label>
+                                  <label for="price">Price</label>
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Price" name="price"
@@ -80,7 +80,7 @@
 
                         <tr> 
                             <td>
-                                  <label for="validatsionCustom01">Stock</label>
+                                  <label for="stock">Stock</label>
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Stock" name="stock"
@@ -90,10 +90,10 @@
 
                         <tr> 
                             <td>
-                                <label for="exampleFormControlFile1">Article image</label>
+                                <label for="image">Article image</label>
                             </td>
                             <td>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
 
                             </td>
                         </tr>
@@ -103,7 +103,7 @@
 
                     <div class='right'>
 
-                        <button type="submit" class="btn" id="save">Add role</button>
+                        <button type="submit" class="btn" id="save">Add article</button>
                     </div>
          
                 </form>

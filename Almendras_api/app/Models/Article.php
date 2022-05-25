@@ -16,7 +16,8 @@ class Article extends Model
         'description',
         'price',
         'stock',
-        'created_by'
+        'created_by',
+        'image'
 
     ];
 }

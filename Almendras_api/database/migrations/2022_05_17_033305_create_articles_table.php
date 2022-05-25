@@ -14,13 +14,13 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->string('code')->unique();
+            $table->increments('code')->start_from(1000);
             $table->string('name');
             $table->text('description');
             $table->decimal('price');
             $table->integer('stock');
-            $table->string('created_by')->unique();
+            $table->string('image');
+            $table->string('created_by');
             $table->foreign('created_by')->references('email')->on('users');
             $table->timestamps();
         });

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light container">
-  <a class="navbar-brand" href="/main">Almendras</a>
+  <a class="navbar-brand" href="#">Almendras</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
