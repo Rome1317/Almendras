@@ -30,6 +30,7 @@ Route::get('users/all','App\Http\Controllers\UsersController@getAllUsers')->name
 Route::post('users/create','App\Http\Controllers\UsersController@createUser')->name('create.users');
 Route::post('users/login','App\Http\Controllers\UsersController@loginUser')->name('login.users');
 Route::post('users/logout','App\Http\Controllers\UsersController@logoutUser')->name('logout.users');
+Route::post('users/update/{email}', 'App\Http\Controllers\UsersController@updateUser')->name('update.users');
 
 // Article
 Route::post('articles/create','App\Http\Controllers\ArticlesController@createArticle')->name('create.articles');
