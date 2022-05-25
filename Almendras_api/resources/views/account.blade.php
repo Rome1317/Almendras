@@ -155,14 +155,15 @@
             </div>
                                    
             <ul id="autoWidth" class="cs-hidden">
-                                   
+
+                @foreach($orders as $orders)                   
                 <li class="item-a">
                     <div class="box-1">
-                        <p class="number">1</p>
-                        <p class="heading">#1235667</p>
-                        <p class="details">1 collar, 2 rings</p>
+                        <p class="number">Order Number #</p>
+                        <p class="heading">{{ $orders->code }}</p>
                     </div>
                 </li>
+                @endforeach
                 
             </ul>
     
