@@ -66,7 +66,39 @@ class OrdersController extends Controller
         foreach($data as $d){
             $order_code = $order_code + 1;
         }
-    
+
+        session_start();
+        
+        $servername = "localhost";
+        $username = "root";
+        $password = "root";
+        $dbname = "almendras_api_system";
+
+        # Get articles saved by user
+        $con = mysqli_connect($servername,$username,$password,$dbname);
+        if (!$con)
+        {
+            die('Could not connect: ' . mysqli_error());
+        }
+        
+        $email = $_SESSION['email'];
+        
+        $queryUser = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
+
+        if($queryUser)
+            $user =array();
+            $user[] = mysqli_fetch_object($queryUser); 
+
+        foreach($user as $user){
+            $user_street = $user->street;
+            $user_CP = $user->CP;
+            $user_state = $user->state;
+        }
+
+        if ($user_street == "" || $user_CP == "" || $user_state == "" ){
+            echo "<script type='text/javascript'>alert('Your shipping address is incomplete');</script>";
+            return ;
+        }
 
         $order = new Order();
         $order->created_by = "rome_gs@hotmail.com"; # User email
@@ -84,7 +116,7 @@ class OrdersController extends Controller
             die('Could not connect: ' . mysqli_error());
         }
         
-        $email = "rome_gs@hotmail.com";
+        $email = $_SESSION['email'];
 
         $queryArticles = mysqli_query($con, "SELECT * FROM articles WHERE code IN ( SELECT article FROM favorites WHERE saved_by = '$email')");
 
