@@ -44,16 +44,14 @@
             <section class="about">
                 <div class="description">
                     <div class="text-container">
-                        @foreach($user as $user)
                         <p>Hola, {{$user->name}} {{$user->last_name}}</p> 
-                        
                     </div>
                 </div>
             </section>
                            
             <!-- Info -->
             <div class="info" id="info">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{route('update.users',$user->email)}}" method="POST" enctype="multipart/form-data">
                     <table class="table">
 
                         <tr>
@@ -143,8 +141,6 @@
                                 </select>
                             </td>
                         </tr>
-
-                        @endforeach
                     </table>
                     
                     <div class="right">

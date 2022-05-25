@@ -108,6 +108,23 @@ class UsersController extends Controller
     
     }
 
+    public function updateUser(Request $request, $email)
+    {
+
+        $this->validate(request(),[
+            'name' => 'required',
+            'last_name' => 'required',
+            'ISO3' => 'required'
+        ]);
+        
+        $user = User::where('email',$email)->first();
+        $user->fill($request->all());
+        $user->save();
+
+        //flash('Noticia Editada Correctamente')->success();
+        return redirect()->to('/account');
+    }
+
     public function logoutUser(){
 
         #auth()->user()->currentAccessToken()->delete();

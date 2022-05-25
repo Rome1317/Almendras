@@ -18,7 +18,7 @@ class OrdersController extends Controller
     public function index()
     {   
         session_start();
-        
+
         $servername = "localhost";
         $username = "root";
         $password = "root";
@@ -41,14 +41,10 @@ class OrdersController extends Controller
                 $orders[] = $fila; 
             }
             #$articles = json_encode($articles);
-
-        $queryUser = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
-
-        if($queryUser)
-            $user =array();
-            $user[] = mysqli_fetch_object($queryUser); 
         
         $countries = Country::all();
+
+        $user = User::where('email',$email)->first();
         
         return view('account',compact('user','orders','countries'));
     }
@@ -69,39 +65,15 @@ class OrdersController extends Controller
 
         session_start();
         
-        $servername = "localhost";
-        $username = "root";
-        $password = "root";
-        $dbname = "almendras_api_system";
-
-        # Get articles saved by user
-        $con = mysqli_connect($servername,$username,$password,$dbname);
-        if (!$con)
-        {
-            die('Could not connect: ' . mysqli_error());
-        }
+        $user = User::where('email',$_SESSION['email'])->first();
         
-        $email = $_SESSION['email'];
-        
-        $queryUser = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
-
-        if($queryUser)
-            $user =array();
-            $user[] = mysqli_fetch_object($queryUser); 
-
-        foreach($user as $user){
-            $user_street = $user->street;
-            $user_CP = $user->CP;
-            $user_state = $user->state;
-        }
-
-        if ($user_street == "" || $user_CP == "" || $user_state == "" ){
+        if ($user->street == "" || $user->CP == "" || $user->state == "" ){
             echo "<script type='text/javascript'>alert('Your shipping address is incomplete');</script>";
             return ;
         }
 
         $order = new Order();
-        $order->created_by = "rome_gs@hotmail.com"; # User email
+        $order->created_by = $user->email;# User email
         $order->save();
 
         $servername = "localhost";
