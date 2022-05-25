@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Country;
+use App\Models\User;
 use App\Models\Order;
 use App\Models\ArticleOrder;
 
@@ -40,7 +42,15 @@ class OrdersController extends Controller
             }
             #$articles = json_encode($articles);
 
-        return view('account',compact('orders'));
+        $queryUser = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
+
+        if($queryUser)
+            $user =array();
+            $user[] = mysqli_fetch_object($queryUser); 
+        
+        $countries = Country::all();
+        
+        return view('account',compact('user','orders','countries'));
     }
 
     /**

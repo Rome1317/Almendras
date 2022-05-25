@@ -44,7 +44,9 @@
             <section class="about">
                 <div class="description">
                     <div class="text-container">
-                        <p>Hola, Rome</p> 
+                        @foreach($user as $user)
+                        <p>Hola, {{$user->name}} {{$user->last_name}}</p> 
+                        
                     </div>
                 </div>
             </section>
@@ -67,7 +69,7 @@
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Name" name="name"
-                                     value ="">
+                                     value ="{{$user->name}}">
                             </td>
                         </tr>
                         <tr> 
@@ -75,8 +77,8 @@
                                   <label for="validatsionCustom01">Lastname</label>
                             </td>
                             <td>
-                                     <input type="text" class="form-control" placeholder="Lastname" name="lastname"
-                                     value ="">
+                                     <input type="text" class="form-control" placeholder="Lastname" name="last_name"
+                                     value ="{{$user->last_name}}">
                             </td>
                         </tr>
 
@@ -93,8 +95,8 @@
                                   <label for="validatsionCustom01">Calle</label>
                             </td>
                             <td>
-                                     <input type="text" class="form-control" placeholder="Calle" name="calle"
-                                     value ="">
+                                     <input type="text" class="form-control" placeholder="Calle" name="street"
+                                     value ="{{$user->street}}">
                             </td>
                         </tr>
 
@@ -103,8 +105,8 @@
                                   <label for="validatsionCustom01">CP</label>
                             </td>
                             <td>
-                                     <input type="text" class="form-control" placeholder="CP" name="cp"
-                                     value ="">
+                                     <input type="text" class="form-control" placeholder="CP" name="CP"
+                                     value ="{{$user->CP}}">
                             </td>
                         </tr>
 
@@ -114,7 +116,7 @@
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="State" name="state"
-                                     value ="">
+                                     value ="{{$user->state}}">
                             </td>
                         </tr>
 
@@ -124,7 +126,7 @@
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Phone" name="phone"
-                                     value ="">
+                                     value ="{{$user->phone}}">
                             </td>
                         </tr>
 
@@ -133,16 +135,16 @@
                                 <label for="inlineFormCustomSelect" class="form-label ">Country</label>
                             </td>
                             <td>
-                                <select class="custom-select mr-sm-2 form-control bg-dark-x "  id="inlineFormCustomSelect">
-                                  <option selected>Choose Country</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
+                                <select class="custom-select mr-sm-2 form-control bg-dark-x "  id="inlineFormCustomSelect" name='ISO3'>
+                                  <option selected="selected">{{$user->ISO3}}</option>
+                                  @foreach ($countries as $d)
+                                    <option class="text-black" value="{{ $d->ISO3 }}">{{ $d->name }}</option>
+                                  @endforeach
                                 </select>
                             </td>
                         </tr>
 
-                    
+                        @endforeach
                     </table>
                     
                     <div class="right">
