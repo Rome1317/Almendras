@@ -39,7 +39,7 @@
 
             <!-- Info -->
             <div class="info" id="info">
-                <form action="" method="get" enctype="multipart/form-data">
+                <form action="{{route('update.articles', $article->code)}}" method="post" enctype="multipart/form-data">
                     <table class="table">
 
                         <tr>
@@ -55,7 +55,7 @@
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Name" name="name"
-                                     value ="">
+                                     value ="{{$article->name}}">
                             </td>
                         </tr>
                         <tr> 
@@ -64,7 +64,7 @@
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Description" name="description"
-                                     value ="">
+                                     value ="{{$article->description}}">
                             </td>
                         </tr>
 
@@ -74,7 +74,7 @@
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Price" name="price"
-                                     value ="">
+                                     value ="{{$article->price}}">
                             </td>
                         </tr>
 
@@ -84,17 +84,17 @@
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Stock" name="stock"
-                                     value ="">
+                                     value ="{{$article->stock}}">
                             </td>
                         </tr>
 
 
                         <tr> 
                             <td>
-                                <label for="exampleFormControlFile1">Article image</label>
+                                <label for="image2">Article image</label>
                             </td>
                             <td>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image2">
 
                             </td>
                         </tr>
