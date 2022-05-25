@@ -37,14 +37,14 @@
                 <a href='/articles_management'>Articles</a>
           </nav>
 
-          <!-- Info -->
-          <div class="info" id="info">
-                <form action="{{route('create.roles')}}" method="POST" enctype="multipart/form-data">
+            <!-- Info -->
+            <div class="info" id="info">
+                <form action="{{route('update.roles', $role->id)}}" method="POST" enctype="multipart/form-data">
                     <table class="table">
 
                         <tr>
                             <td>
-                                <h4>New Role</h4>
+                                <h4>Update Role</h4>
                             </td>
 
                         </tr>
@@ -55,7 +55,7 @@
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Name" name="name"
-                                     value ="">
+                                     value ="{{$role->name}}">
                             </td>
                         </tr>
                         <tr> 
@@ -64,7 +64,7 @@
                             </td>
                             <td>
                                      <input type="text" class="form-control" placeholder="Description" name="description"
-                                     value ="">
+                                     value ="{{$role->description}}">
                             </td>
                         </tr>
 
@@ -73,42 +73,11 @@
 
                     <div class='right'>
 
-                        <button type="submit" class="btn" id="save">Add role</button>
+                        <button type="submit" class="btn delete-btn" id="save">Delete role</button>
 
+
+                        <button type="submit" class="btn" id="save">Save changes</button>
                     </div>
-         
-                </form>
-            </div>
-
-            <!-- Info -->
-            <div class="info" id="info">
-                <form action="" method="get" enctype="multipart/form-data">
-                    <table class="table">
-
-                        <tr>
-                            <td>
-                                <h4>Edit Role</h4>
-                            </td>
-
-                        </tr>
-
-                        @foreach ($roles as $d)
-                        <tr> 
-                            
-                            <td>
-                                <label for="inlineFormCustomSelect" class="form-label ">{{ $d->name }}</label>
-                            </td>
-                            <td>
-                                <div class='right'>
-                                    <a href="{{route('edit.roles', $d->id)}}" class="btn" id="save">Edit role</a>
-                                </div>
-
-                            </td>
-                           
-                        </tr> 
-                        @endforeach
-
-                    </table>
 
                                         
                 </form>

@@ -32,3 +32,4 @@ Route::get('/roles_management', 'App\Http\Controllers\RolesController@index')->n
 
 # ATICLE MANAGEMENT
 Route::get('/articles_management', 'App\Http\Controllers\ArticlesController@index')->name('index');
+

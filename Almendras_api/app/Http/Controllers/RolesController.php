@@ -14,7 +14,6 @@ class RolesController extends Controller
         $email = $_SESSION['email'];
         $user = User::where('email',$email)->first();
 
-        echo $user->role_id;
 
         if($user->role_id != 1){
             echo "<script type='text/javascript'>alert('You don't have access');</script>";
@@ -23,7 +22,7 @@ class RolesController extends Controller
 
 
         $roles = Role::all();
-        return view('roles_forms',compact('roles'));
+        return view('roles_forms',compact('roles','user'));
     }
 
     public function getAllRoles(){
@@ -43,11 +42,11 @@ class RolesController extends Controller
 
     }
 
-    public function edit($id){
-        flash('Role saved successfully')->success();
+    public function editRole($id){
 
         $role = Role::find($id);
-        return view('roles_forms', compact('role'));
+
+        return view('edit_role', compact('role'));
 
     }
 
