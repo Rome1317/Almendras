@@ -156,6 +156,18 @@
 
                 <form class="mb-1" action ="{{route('create.users')}}" method="post">
 
+                  <!-- Country-->
+                  <div class="mb-3">
+
+                  <label for="ISO3" class="form-label font-weight-bold">Role</label>
+                  <select class="custom-select mr-sm-2 form-control bg-dark-x " name='role_id' id="inlineFormCustomSelect">
+                    <option selected>Choose Role</option>
+                      @foreach ($roles as $d)
+                        <option class="text-black" value="{{ $d->id }}">{{ $d->name }}</option>
+                      @endforeach
+                  </select>
+                  </div>
+
                   <!-- Email --> 
                   <div class="mb-1">
 

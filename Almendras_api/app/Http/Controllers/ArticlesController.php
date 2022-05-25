@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller
@@ -15,6 +16,18 @@ class ArticlesController extends Controller
      */
     public function index()
     {
+        session_start();
+        $email = $_SESSION['email'];
+        $user = User::where('email',$email)->first();
+
+        echo $user->role_id;
+
+        if($user->role_id != 1){
+            echo "<script type='text/javascript'>alert('You don't have access');</script>";
+            return redirect()->back();
+        }
+
+
         $articles = Article::all();
         return view('articles_forms',compact('articles'));
     }
