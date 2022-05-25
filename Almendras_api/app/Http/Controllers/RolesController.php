@@ -22,7 +22,7 @@ class RolesController extends Controller
 
 
         $roles = Role::all();
-        return view('roles_forms',compact('roles','user'));
+        return view('roles_forms',compact('roles'));
     }
 
     public function getAllRoles(){
@@ -59,8 +59,7 @@ class RolesController extends Controller
         ]);
 
         $role = Role::find($id);
-        $role->name = $request->name;
-        $role->description = $request->description;
+        $role->fill($request->all());;
         $role->save();
 
         return redirect()->to('/roles_management');

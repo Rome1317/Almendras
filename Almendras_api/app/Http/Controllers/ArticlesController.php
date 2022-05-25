@@ -88,27 +88,37 @@ class ArticlesController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function editArticle($id)
-    {
-        //
+    public function editArticle($code){
+
+        $article = Article::where('code',$code)->first();
+
+        return view('edit_article', compact('article'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function updateArticle(Request $request, $code)
     {
-        //
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+        ]);
+
+        
+        $article = Article::where('code',$code)->first();
+
+       if($_FILES['image2']['name']) {
+            $img = $_FILES['image2']['name'];
+            move_uploaded_file($_FILES['image2']['tmp_name'],"../public/assets/images/$img");
+            $article->image = "assets/images/$img";
+       }
+        
+        $article->fill($request->all());
+        $article->save();
+
+        return redirect()->to('/articles_management');
     }
 
     /**

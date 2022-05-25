@@ -35,7 +35,8 @@ Route::post('users/update/{email}', 'App\Http\Controllers\UsersController@update
 
 // Article
 Route::post('articles/create','App\Http\Controllers\ArticlesController@createArticle')->name('create.articles');
-Route::get('/articl/edit/{article}', 'App\Http\Controllers\ArticlesController@editArticle')->name('edit.articles');
+Route::get('/articles/edit/{article}', 'App\Http\Controllers\ArticlesController@editArticle')->name('edit.articles');
+Route::post('articles/update/{article}','App\Http\Controllers\ArticlesController@updateArticle')->name('update.articles');
 
 // Favorite
 Route::post('favorites/create/{article}','App\Http\Controllers\FavoritesController@createFavorite')->name('create.favorites');

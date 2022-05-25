@@ -9,6 +9,8 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'code';
+
     protected $table = 'articles';
 
     protected $fillable = [

@@ -111,7 +111,7 @@
 
             <!-- Info -->
             <div class="info" id="info">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="" method="get" enctype="multipart/form-data">
                     <table class="table">
 
                         <tr>
@@ -121,28 +121,23 @@
 
                         </tr>
 
+                        @foreach ($articles as $articles)
                         <tr> 
+                            
                             <td>
-                                <label for="inlineFormCustomSelect" class="form-label ">Articles</label>
+                                <label for="inlineFormCustomSelect" class="form-label ">{{ $articles->name }}</label>
                             </td>
                             <td>
-                                <select class="custom-select mr-sm-2 form-control bg-dark-x "  id="inlineFormCustomSelect">
-                                  <option selected>Choose Article</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
+                                <div class='right'>
+                                    <a href="{{route('edit.articles', $articles->code)}}" class="btn" id="save">Edit article</a>
+                                </div>
+
                             </td>
-                        </tr>
+                           
+                        </tr> 
+                        @endforeach
                         
-                    </table>
-
-                    <div class='right'>
-
-                        <button type="submit" class="btn" id="save">Edit article</button>
-                    </div>
-
-                        
+                    </table>            
                                         
                 </form>
             </div>
