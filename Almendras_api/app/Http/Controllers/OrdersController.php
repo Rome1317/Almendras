@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Order;
 
 class OrdersController extends Controller
 {
@@ -21,9 +22,22 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createOrder(Request $request)
     {
-        //
+        $this->validate(request(),[
+            'name'  => 'required',
+            'description'  => 'required',
+            'price'  => 'required',
+            'stock'  => 'required',
+            'image' => 'required'
+        ]);
+
+        $order = new Order();
+        $order->fill($request->all());
+        $order->created_by = "rome_gs@hotmail.com"; # User email
+        $order->save();
+
+        echo "<script type='text/javascript'>alert('New article added successfully');</script>";
     }
 
     /**

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller
 {
@@ -13,7 +15,13 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return view('articles_forms');
+        $articles = Article::all();
+        return view('articles_forms',compact('articles'));
+    }
+
+    public function getAllArticles(){
+        $data = Article::all();
+        return $data;
     }
 
     /**
@@ -21,9 +29,28 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createArticle(Request $request)
     {
-        //
+    
+        $this->validate(request(),[
+            'name'  => 'required',
+            'description'  => 'required',
+            'price'  => 'required',
+            'stock'  => 'required',
+            'image' => 'required'
+        ]);
+
+        $img = $_FILES['image']['name'];
+        move_uploaded_file($_FILES['image']['tmp_name'],"../public/assets/images/$img");
+
+        $article = new Article();
+        $article->fill($request->all());
+        $article->image = "assets/images/$img";
+        $article->created_by = "rome_gs@hotmail.com"; # User email
+        $article->save();
+
+        echo "<script type='text/javascript'>alert('New article added successfully');</script>";
+        return redirect()->to('/main');
     }
 
     /**

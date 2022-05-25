@@ -42,7 +42,7 @@
             <section class="about">
                 <div class="description">
                     <div class="text-container">
-                        <p>Hola, Usuario</p> 
+                        <p>Hola, Rome</p> 
                     </div>
                 </div>
             </section>
