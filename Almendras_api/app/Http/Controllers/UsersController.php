@@ -53,6 +53,15 @@ class UsersController extends Controller
             'ISO3' => 'required'
         ]);
 
+        $user = User::where('email',$request->email)->first();
+
+        if($user != ""){
+            echo '<script type="text/javascript">'; 
+            echo 'alert("Email alredy exists");'; 
+            echo 'window.location.href = "/login";';
+            echo '</script>';
+        }
+
         $user = new User();
         $user->fill($request->all());
         $user->password = Hash::make($request->password);  #Hash password
@@ -60,9 +69,10 @@ class UsersController extends Controller
 
         auth()->login($user);
 
-        echo "<script type='text/javascript'>alert('New user added successfully');</script>";
-
-        return redirect()->to('/login');
+        echo '<script type="text/javascript">'; 
+        echo 'alert("New user added successfully");'; 
+        echo 'window.location.href = "/login";';
+        echo '</script>';
     }
 
     
@@ -98,8 +108,10 @@ class UsersController extends Controller
 
         }
 
-        echo "<script type='text/javascript'>alert('Invalid Credentials');</script>";
-        return redirect()->back();
+        echo '<script type="text/javascript">'; 
+        echo 'alert("Invalid Credentials");'; 
+        echo 'window.location.href = "/login";';
+        echo '</script>';
 
         /* 
         #Cookies
@@ -127,8 +139,11 @@ class UsersController extends Controller
         $user->fill($request->all());
         $user->save();
 
-        //flash('Noticia Editada Correctamente')->success();
-        return redirect()->to('/account');
+        echo '<script type="text/javascript">'; 
+        echo 'alert("User info updated successfully");'; 
+        echo 'window.location.href = "/account";';
+        echo '</script>';
+
     }
 
     public function logoutUser(){
